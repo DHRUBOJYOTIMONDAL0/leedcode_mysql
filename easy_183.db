@@ -1,0 +1,30 @@
+-- DIFFICULTY LAVEL:- EASY-183
+-- ustomers-who-never-order
+
+create table Coustomer (
+id int not null auto_increment,
+name varchar(20),
+primary key(id)
+);
+
+CREATE TABLE Orders (
+id INT NOT NULL AUTO_INCREMENT,
+coustomerId INT,
+PRIMARY KEY (id),
+foreign key (coustomerId) REFERENCES Coustomer(id)
+);
+
+select * from Orders;
+insert into Coustomer (name )value ("joe"), ("Henry"), ("Sam"), ("Max");
+
+insert into Orders (coustomerId) values (3), (1);
+
+select name from Coustomer name
+left join 
+Orders
+on
+name.id = Orders.coustomerId
+where Orders.coustomerId is null;
+
+select name as Customers from Customers
+where Customers.id not in (select customerId from Orders);
